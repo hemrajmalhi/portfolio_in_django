@@ -40,7 +40,7 @@
     <div class="d-flex flex-column">
 
         <img src="{%static 'assets/img/profile-image.jpg' %}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="home">Hemraj Malhi</a></h1>
+        <h1 class="text-center"><a href="#hero"> Hemraj Malhi</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.facebook.com/hemraj.malhi.5" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="https://github.com/hemrajmalhi" class="github"><i class="bx bxl-github"></i></a>
@@ -63,12 +63,27 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-     {% if message in message %}
+
+     {% if message  %}
               <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
-              <strong>{{message}}.</strong>
+              <strong>{{message}}! </strong> your message has been successfully sent
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+
+    {% else%}
+              <div class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
+              <strong>{{error}}! </strong>Please input the correct detail.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
               {% endif %}
+
+
+
+
+
+
+
     <div class="hero-container" data-aos="fade-in">
       <h1>Hemraj Malhi</h1>
       <p>I'M <span class="typed" data-typed-items="Python Developer, Django Developer, Freelancer"></span></p>
@@ -277,7 +292,7 @@
             <h3 class="resume-title">Courses and Training </h3>
             <div class="resume-item">
               <ul>
-                <li>Web Development by Intern's Pakistan.<span><a href="https://drive.google.com/file/d/1T27c67AyQig0_9PF1wvKk5im6gZ8SpnD/view"><i class="fa-solid fa-paperclip"></i></a></span></li>
+                <li>Web Development by Intern's Pakistan.<span><a href="https://drive.google.com/file/d/1T27c67AyQig0_9PF1wvKk5im6gZ8SpnD/view"><i class="fa-sharp fa-solid fa-link"></i></a></span></li>
                 <li>Completed a Python Crash Course on Coursera by Google.<span><a href="https://coursera.org/share/2d89248cc580712c06fb87b8946243c0"><i class="fa-sharp fa-solid fa-link"></i></a></span></li>
                 <li>Completed Python Essentials course on edX by IBM .<span><a href="https://courses.edx.org/certificates/8bcbcaa2e963440fa0483c850847d42c"><i class="fa-sharp fa-solid fa-link"></i></a></span></li>
                 <li>Completed Python Essentials by Cisco .<span><a href="https://www.credly.com/badges/c5fcf5b4-713c-4b76-bc4a-853008d123b7/public_url"><i class="fa-sharp fa-solid fa-link"></i></a></span></li>
@@ -321,7 +336,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="home" method="post" role="form" class="php-email-form">
+            <form action="" method="post" role="form" class="php-email-form">
               {% csrf_token %}
               <div class="row">
                 <div class="form-group col-md-6">
