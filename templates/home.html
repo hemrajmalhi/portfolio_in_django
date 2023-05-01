@@ -64,25 +64,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
 
-     {% if message  %}
-              <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
-              <strong>{{message}}! </strong> your message has been successfully sent
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-
-
-    {% else%}
-              <div class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
-              <strong>{{error}}! </strong>Please input the correct detail.
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endif %}
-
-
-
-
-
-
+{% include 'components/msg.html' %}
 
     <div class="hero-container" data-aos="fade-in">
       <h1>Hemraj Malhi</h1>
@@ -336,7 +318,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="" method="post" role="form" class="php-email-form">
+            <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
               {% csrf_token %}
               <div class="row">
                 <div class="form-group col-md-6">

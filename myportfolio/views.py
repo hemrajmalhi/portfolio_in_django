@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from myportfolio.models import Contact
+from django.contrib import messages
 
 
 # Create your views here.
 def home(request):
-    context = {}
+    return render(request, "home.html")
+
+
+def contact(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -12,8 +16,8 @@ def home(request):
         message = request.POST['message']
         contact = Contact(name=name, email=email, subject=subject, message=message)
         if len(name) < 4 or len(email) < 10 or len(subject) < 5 or len(message) < 6:
-            context = {"error": "Error"}
+            messages.error(request,"Please fill this form completely")
         else:
             contact.save()
-            context = {"message": name}
-    return render(request, "home.html", context)
+            messages.success(request, "your message has been Successfully sent")
+    return redirect('home')

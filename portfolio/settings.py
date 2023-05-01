@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w%qhhpg%$wc7g!04ta!tau$^*mptj_899yym+nej$(i@j4ts&k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -124,6 +124,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # from messages framework
-MESSAGE_TAGS = {
-    messages.ERROR: 'danger'
-}
+# MESSAGE_TAGS = {
+#     messages.ERROR: 'danger'
+# }
